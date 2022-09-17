@@ -24,6 +24,14 @@ class PtBrDateField(DateField):
     INPUT_FORMAT = "%d/%m/%Y"
 
 
+class ShortPtBrDateField(DateField):
+    INPUT_FORMAT = "%d/%m/%y"
+
+
+def remove_extra_spaces(value):
+    return " ".join(value.split())
+
+
 def unaccent(text):
     return normalize("NFKD", text).encode("ascii", errors="ignore").decode("ascii")
 
